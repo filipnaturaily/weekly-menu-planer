@@ -21,85 +21,97 @@ export interface PersonMeals {
   agata: Meal;
 }
 
-// Actual menu data
-export const weeklyMenu: Record<string, PersonMeals> = {
+export type Day =
+  | 'monday'
+  | 'tuesday'
+  | 'wednesday'
+  | 'thursday'
+  | 'friday'
+  | 'saturday'
+  | 'sunday';
+
+export const weeklyMenu: Record<Day, PersonMeals> = {
   monday: {
     filip: {
       breakfast: {
-        name: 'Oatmeal with fruits',
+        name: 'KANAPKI Z SEREM ŻÓŁTYM I POMIDOREM',
         ingredients: [
-          { name: 'Oats', amount: 60, unit: 'g' },
-          { name: 'Milk', amount: 200, unit: 'ml' },
-          { name: 'Banana', amount: 1, unit: 'pc' },
-          { name: 'Blueberries', amount: 50, unit: 'g' },
-          { name: 'Honey', amount: 10, unit: 'g' },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 60, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 10, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Greek yogurt with nuts',
+        name: 'SKYR Z JABŁKIEM',
         ingredients: [
-          { name: 'Greek yogurt', amount: 150, unit: 'g' },
-          { name: 'Almonds', amount: 30, unit: 'g' },
-          { name: 'Honey', amount: 10, unit: 'g' },
+          { name: 'Jabłko', amount: 150, unit: 'g' },
+          { name: 'Skyr smakowy (różne rodzaje)', amount: 150, unit: 'g' },
+          { name: 'Orzechy nerkowca (bez soli)', amount: 40, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Chicken with vegetables',
+        name: 'SPAGHETTI Z SOSEM MIĘSNO-POMIDOROWYM',
         ingredients: [
-          { name: 'Chicken breast', amount: 200, unit: 'g' },
-          { name: 'Broccoli', amount: 100, unit: 'g' },
-          { name: 'Carrot', amount: 1, unit: 'pc' },
-          { name: 'Olive oil', amount: 15, unit: 'ml' },
-          { name: 'Rice', amount: 80, unit: 'g' },
+          { name: 'Pomidory z puszki (krojone)', amount: 200, unit: 'g' },
+          { name: 'Makaron spaghetti pełnoziarnisty', amount: 100, unit: 'g' },
+          { name: 'Mięso mielone wołowe', amount: 80, unit: 'g' },
+          { name: 'Cebula', amount: 25, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Salmon with sweet potato',
+        name: 'TOSTY Z SZYNKĄ, SEREM I WARZYWAMI',
         ingredients: [
-          { name: 'Salmon fillet', amount: 150, unit: 'g' },
-          { name: 'Sweet potato', amount: 200, unit: 'g' },
-          { name: 'Spinach', amount: 50, unit: 'g' },
-          { name: 'Olive oil', amount: 10, unit: 'ml' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 60, unit: 'g' },
+          { name: 'Rukola', amount: 20, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
         ],
       },
     },
     agata: {
       breakfast: {
-        name: 'Avocado toast',
+        name: 'KANAPKI Z SEREM ŻÓŁTYM I POMIDOREM',
         ingredients: [
-          { name: 'Whole grain bread', amount: 2, unit: 'slice' },
-          { name: 'Avocado', amount: 0.5, unit: 'pc' },
-          { name: 'Eggs', amount: 2, unit: 'pc' },
-          { name: 'Cherry tomatoes', amount: 4, unit: 'pc' },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 90, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 45, unit: 'g' },
+          { name: 'Sałata', amount: 15, unit: 'g' },
+          { name: 'Masło ekstra', amount: 8, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Fruit salad',
+        name: 'JOGURT Z MALINAMI',
         ingredients: [
-          { name: 'Apple', amount: 1, unit: 'pc' },
-          { name: 'Orange', amount: 1, unit: 'pc' },
-          { name: 'Grapes', amount: 50, unit: 'g' },
-          { name: 'Yogurt', amount: 100, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 200, unit: 'g' },
+          { name: 'Maliny', amount: 120, unit: 'g' },
+          { name: 'Orzechy nerkowca (bez soli)', amount: 30, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Quinoa bowl',
+        name: 'SPAGHETTI Z SOSEM MIĘSNO-POMIDOROWYM',
         ingredients: [
-          { name: 'Quinoa', amount: 80, unit: 'g' },
-          { name: 'Tofu', amount: 100, unit: 'g' },
-          { name: 'Bell pepper', amount: 1, unit: 'pc' },
-          { name: 'Cucumber', amount: 0.5, unit: 'pc' },
-          { name: 'Olive oil', amount: 10, unit: 'ml' },
+          { name: 'Pomidory z puszki (krojone)', amount: 200, unit: 'g' },
+          { name: 'Makaron spaghetti pełnoziarnisty', amount: 100, unit: 'g' },
+          { name: 'Mięso mielone wołowe', amount: 80, unit: 'g' },
+          { name: 'Cebula', amount: 25, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Vegetable soup',
+        name: 'TOSTY Z SZYNKĄ, SEREM I WARZYWAMI',
         ingredients: [
-          { name: 'Potato', amount: 1, unit: 'pc' },
-          { name: 'Carrot', amount: 1, unit: 'pc' },
-          { name: 'Celery', amount: 1, unit: 'stalk' },
-          { name: 'Onion', amount: 0.5, unit: 'pc' },
-          { name: 'Vegetable stock', amount: 300, unit: 'ml' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 30, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Rukola', amount: 20, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
         ],
       },
     },
@@ -107,170 +119,632 @@ export const weeklyMenu: Record<string, PersonMeals> = {
   tuesday: {
     filip: {
       breakfast: {
-        name: 'Scrambled eggs',
+        name: 'MOZZARELLA Z POMIDOREM',
         ingredients: [
-          { name: 'Eggs', amount: 3, unit: 'pc' },
-          { name: 'Whole grain bread', amount: 2, unit: 'slice' },
-          { name: 'Butter', amount: 10, unit: 'g' },
-          { name: 'Spinach', amount: 30, unit: 'g' },
+          { name: 'Ser mozzarella, light', amount: 125, unit: 'g' },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Oliwa z oliwek', amount: 5, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Protein shake',
+        name: 'JOGURT Z BANANEM',
         ingredients: [
-          { name: 'Protein powder', amount: 30, unit: 'g' },
-          { name: 'Milk', amount: 250, unit: 'ml' },
-          { name: 'Banana', amount: 1, unit: 'pc' },
-          { name: 'Peanut butter', amount: 15, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 200, unit: 'g' },
+          { name: 'Banan', amount: 120, unit: 'g' },
+          { name: 'Słonecznik, nasiona, łuskane', amount: 30, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Beef stir fry',
+        name: 'RYŻ PO CHIŃSKU Z KURCZAKIEM I WARZYWAMI',
         ingredients: [
-          { name: 'Beef strips', amount: 180, unit: 'g' },
-          { name: 'Bell pepper', amount: 1, unit: 'pc' },
-          { name: 'Broccoli', amount: 100, unit: 'g' },
-          { name: 'Soy sauce', amount: 15, unit: 'ml' },
-          { name: 'Rice noodles', amount: 80, unit: 'g' },
+          { name: 'Warzywa na patelnię chińskie', amount: 200, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ryż biały', amount: 75, unit: 'g' },
+          { name: 'Sos sojowy ciemny', amount: 10, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+          { name: 'Szczypiorek', amount: 5, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Turkey wraps',
+        name: 'KANAPKI Z SERKIEM ŚMIETANKOWYM I ŁOSOSIEM WĘDZONYM',
         ingredients: [
-          { name: 'Turkey slices', amount: 120, unit: 'g' },
-          { name: 'Whole grain tortilla', amount: 2, unit: 'pc' },
-          { name: 'Lettuce', amount: 30, unit: 'g' },
-          { name: 'Tomato', amount: 1, unit: 'pc' },
-          { name: 'Avocado', amount: 0.5, unit: 'pc' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Ogórek', amount: 120, unit: 'g' },
+          { name: 'Łosoś, wędzony', amount: 75, unit: 'g' },
+          { name: 'Serek śmietankowy', amount: 60, unit: 'g' },
+          { name: 'Rukola', amount: 20, unit: 'g' },
         ],
       },
     },
     agata: {
-      // Add dishes for Agata on Tuesday
-      // ...similar structure
       breakfast: {
-        name: 'Chia pudding',
+        name: 'TORTILLA Z SEREM FETA I WARZYWAMI',
         ingredients: [
-          { name: 'Chia seeds', amount: 30, unit: 'g' },
-          { name: 'Almond milk', amount: 200, unit: 'ml' },
-          { name: 'Blueberries', amount: 50, unit: 'g' },
-          { name: 'Honey', amount: 10, unit: 'g' },
+          { name: 'Ser typu "Feta"', amount: 100, unit: 'g' },
+          { name: 'Tortilla pełnoziarnista', amount: 61, unit: 'g' },
+          { name: 'Pomidor', amount: 60, unit: 'g' },
+          { name: 'Ogórek', amount: 40, unit: 'g' },
+          { name: 'Keczup', amount: 30, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Vegetable sticks with hummus',
+        name: 'JOGURT Z BANANEM',
         ingredients: [
-          { name: 'Carrot', amount: 1, unit: 'pc' },
-          { name: 'Cucumber', amount: 0.5, unit: 'pc' },
-          { name: 'Hummus', amount: 50, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 200, unit: 'g' },
+          { name: 'Banan', amount: 120, unit: 'g' },
+          { name: 'Słonecznik, nasiona, łuskane', amount: 20, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Lentil salad',
+        name: 'RYŻ PO CHIŃSKU Z KURCZAKIEM I WARZYWAMI',
         ingredients: [
-          { name: 'Lentils', amount: 100, unit: 'g' },
-          { name: 'Cherry tomatoes', amount: 100, unit: 'g' },
-          { name: 'Feta cheese', amount: 50, unit: 'g' },
-          { name: 'Cucumber', amount: 0.5, unit: 'pc' },
-          { name: 'Olive oil', amount: 10, unit: 'ml' },
+          { name: 'Warzywa na patelnię chińskie', amount: 200, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ryż biały', amount: 75, unit: 'g' },
+          { name: 'Sos sojowy ciemny', amount: 10, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+          { name: 'Szczypiorek', amount: 5, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Stuffed bell peppers',
+        name: 'KANAPKI Z SERKIEM ŚMIETANKOWYM I ŁOSOSIEM WĘDZONYM',
         ingredients: [
-          { name: 'Bell pepper', amount: 2, unit: 'pc' },
-          { name: 'Quinoa', amount: 60, unit: 'g' },
-          { name: 'Zucchini', amount: 0.5, unit: 'pc' },
-          { name: 'Tomato sauce', amount: 100, unit: 'ml' },
-          { name: 'Mozzarella', amount: 30, unit: 'g' },
+          { name: 'Ogórek', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 90, unit: 'g' },
+          { name: 'Łosoś, wędzony', amount: 75, unit: 'g' },
+          { name: 'Serek śmietankowy', amount: 45, unit: 'g' },
+          { name: 'Rukola', amount: 20, unit: 'g' },
         ],
       },
     },
   },
-  // Continue with the rest of the week
   wednesday: {
     filip: {
       // Add dishes for Filip on Wednesday
       breakfast: {
-        name: 'Protein pancakes',
+        name: 'KANAPKI Z SZYNKĄ I KISZONYM OGÓRKIEM',
         ingredients: [
-          { name: 'Protein powder', amount: 30, unit: 'g' },
-          { name: 'Oat flour', amount: 50, unit: 'g' },
-          { name: 'Eggs', amount: 2, unit: 'pc' },
-          { name: 'Banana', amount: 1, unit: 'pc' },
-          { name: 'Maple syrup', amount: 15, unit: 'ml' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 90, unit: 'g' },
+          { name: 'Masło ekstra', amount: 20, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Cottage cheese with fruits',
+        name: 'SKYR JOGURT PITNY, BANAN, ORZECHY',
         ingredients: [
-          { name: 'Cottage cheese', amount: 150, unit: 'g' },
-          { name: 'Pineapple', amount: 100, unit: 'g' },
-          { name: 'Walnuts', amount: 15, unit: 'g' },
+          { name: 'Skyr jogurt pitny', amount: 330, unit: 'g' },
+          { name: 'Banan', amount: 120, unit: 'g' },
+          { name: 'Orzechy laskowe', amount: 10, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Grilled chicken salad',
+        name: 'GYROS',
         ingredients: [
-          { name: 'Chicken breast', amount: 180, unit: 'g' },
-          { name: 'Mixed greens', amount: 80, unit: 'g' },
-          { name: 'Cherry tomatoes', amount: 80, unit: 'g' },
-          { name: 'Cucumber', amount: 0.5, unit: 'pc' },
-          { name: 'Olive oil', amount: 10, unit: 'ml' },
-          { name: 'Balsamic vinegar', amount: 5, unit: 'ml' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ogórki, kiszone', amount: 100, unit: 'g' },
+          { name: 'Kapusta pekińska', amount: 50, unit: 'g' },
+          { name: 'Kukurydza, konserwowa', amount: 40, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
+          { name: 'Oliwa z oliwek', amount: 5, unit: 'g' },
+          { name: 'Frytki', amount: 100, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Fish tacos',
+        name: 'PARÓWKI Z PIECZYWEM I WARZYWAMI',
         ingredients: [
-          { name: 'White fish fillet', amount: 150, unit: 'g' },
-          { name: 'Corn tortilla', amount: 3, unit: 'pc' },
-          { name: 'Cabbage', amount: 50, unit: 'g' },
-          { name: 'Lime', amount: 0.5, unit: 'pc' },
-          { name: 'Avocado', amount: 0.5, unit: 'pc' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Parówki z kurczaka', amount: 100, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
         ],
       },
     },
     agata: {
-      // Add dishes for Agata on Wednesday
       breakfast: {
-        name: 'Smoothie bowl',
+        name: 'KANAPKI Z SZYNKĄ I KISZONYM OGÓRKIEM',
         ingredients: [
-          { name: 'Frozen mixed berries', amount: 150, unit: 'g' },
-          { name: 'Banana', amount: 1, unit: 'pc' },
-          { name: 'Almond milk', amount: 100, unit: 'ml' },
-          { name: 'Granola', amount: 30, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 10, unit: 'g' },
         ],
       },
       secondBreakfast: {
-        name: 'Rice cakes with nut butter',
+        name: 'SKYR JOGURT PITNY',
         ingredients: [
-          { name: 'Rice cakes', amount: 2, unit: 'pc' },
-          { name: 'Almond butter', amount: 20, unit: 'g' },
-          { name: 'Banana', amount: 0.5, unit: 'pc' },
+          { name: 'Skyr jogurt pitny', amount: 330, unit: 'g' },
+          { name: 'Banan', amount: 120, unit: 'g' },
         ],
       },
       lunch: {
-        name: 'Buddha bowl',
+        name: 'GYROS',
         ingredients: [
-          { name: 'Sweet potato', amount: 150, unit: 'g' },
-          { name: 'Chickpeas', amount: 100, unit: 'g' },
-          { name: 'Avocado', amount: 0.5, unit: 'pc' },
-          { name: 'Kale', amount: 50, unit: 'g' },
-          { name: 'Tahini', amount: 15, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ogórki, kiszone', amount: 100, unit: 'g' },
+          { name: 'Kapusta pekińska', amount: 50, unit: 'g' },
+          { name: 'Kukurydza, konserwowa', amount: 40, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 40, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
+          { name: 'Oliwa z oliwek', amount: 5, unit: 'g' },
+          { name: 'Frytki', amount: 100, unit: 'g' },
         ],
       },
       dinner: {
-        name: 'Mushroom risotto',
+        name: 'PARÓWKI Z PIECZYWEM I WARZYWAMI',
         ingredients: [
-          { name: 'Arborio rice', amount: 80, unit: 'g' },
-          { name: 'Mushrooms', amount: 150, unit: 'g' },
-          { name: 'Onion', amount: 0.5, unit: 'pc' },
-          { name: 'Vegetable stock', amount: 250, unit: 'ml' },
-          { name: 'Parmesan cheese', amount: 20, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 90, unit: 'g' },
+          { name: 'Parówki z kurczaka', amount: 80, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
         ],
       },
     },
   },
-  // Add remaining days with similar structure
+  thursday: {
+    filip: {
+      breakfast: {
+        name: 'PASTA Z TUŃCZYKA Z JAJKIEM I OGÓRKIEM',
+        ingredients: [
+          {
+            name: 'Chleb żytni jasny',
+            amount: 120,
+            unit: 'g',
+          },
+          {
+            name: 'Tuńczyk w sosie własnym',
+            amount: 60,
+            unit: 'g',
+          },
+          {
+            name: 'Jaja kurze całe',
+            amount: 56,
+            unit: 'g',
+          },
+          {
+            name: 'Ogórki, kiszone',
+            amount: 50,
+            unit: 'g',
+          },
+          {
+            name: 'Jogurt naturalny',
+            amount: 20,
+            unit: 'g',
+          },
+          {
+            name: 'Banan',
+            amount: 120,
+            unit: 'g',
+          },
+        ],
+      },
+      secondBreakfast: {
+        name: 'SEREK WIEJSKI Z BORÓWKAMI I CYNAMONEM',
+        ingredients: [
+          { name: 'Serek wiejski (naturalny)', amount: 200, unit: 'g' },
+          { name: 'Borówki amerykańskie', amount: 100, unit: 'g' },
+          { name: 'Orzechy nerkowca (bez soli)', amount: 30, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
+          { name: 'Cynamon', amount: 1, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'BITKI WIEPRZOWE W SOSIE WŁASNYM Z ZIEMNIAKAMI I BURAKAMI',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 250, unit: 'g' },
+          { name: 'Wieprzowina, szynka surowa', amount: 180, unit: 'g' },
+          { name: 'Burak', amount: 150, unit: 'g' },
+          { name: 'Cebula', amount: 50, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Mąka pszenna, typ 500', amount: 6, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'SZAKSZUKA Z POMIDORAMI',
+        ingredients: [
+          { name: 'Pomidor', amount: 240, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 168, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 90, unit: 'g' },
+          { name: 'Cebula', amount: 50, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+        ],
+      },
+    },
+    agata: {
+      breakfast: {
+        name: 'PASTA Z TUŃCZYKA Z JAJKIEM I OGÓRKIEM',
+        ingredients: [
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Tuńczyk w sosie własnym', amount: 60, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 56, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 50, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 20, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'SEREK WIEJSKI Z BORÓWKAMI I CYNAMONEM',
+        ingredients: [
+          { name: 'Serek wiejski (naturalny)', amount: 200, unit: 'g' },
+          { name: 'Borówki amerykańskie', amount: 100, unit: 'g' },
+          { name: 'Orzechy nerkowca (bez soli)', amount: 15, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
+          { name: 'Cynamon', amount: 1, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'BITKI WIEPRZOWE W SOSIE WŁASNYM Z ZIEMNIAKAMI I BURAKAMI',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 250, unit: 'g' },
+          { name: 'Wieprzowina, szynka surowa', amount: 180, unit: 'g' },
+          { name: 'Burak', amount: 150, unit: 'g' },
+          { name: 'Cebula', amount: 50, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Mąka pszenna, typ 500', amount: 6, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'SZAKSZUKA Z POMIDORAMI',
+        ingredients: [
+          { name: 'Pomidor', amount: 240, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 112, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 75, unit: 'g' },
+          { name: 'Cebula', amount: 50, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+        ],
+      },
+    },
+  },
+  friday: {
+    filip: {
+      breakfast: {
+        name: 'OWSIANKA Z KINDER BUENO I TRUSKAWKAMI',
+        ingredients: [
+          { name: 'Mleko spożywcze, 1,5 % tłuszczu', amount: 160, unit: 'g' },
+          { name: 'Truskawki', amount: 150, unit: 'g' },
+          { name: 'Płatki owsiane', amount: 60, unit: 'g' },
+          { name: 'Baton Kinder Bueno', amount: 22, unit: 'g' },
+          { name: 'Orzechy laskowe', amount: 10, unit: 'g' },
+          { name: 'Czekolada gorzka', amount: 6, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'BUŁKA Z SZYNKĄ I PAPRYKĄ',
+        ingredients: [
+          { name: 'Bułka pełnoziarnista', amount: 80, unit: 'g' },
+          { name: 'Papryka czerwona', amount: 70, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Banan', amount: 120, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'ZAPIEKANKA MAKARONOWA Z BROKUŁAMI I SZYNKĄ',
+        ingredients: [
+          { name: 'Brokuły', amount: 200, unit: 'g' },
+          { name: 'Mleko spożywcze, 1,5 % tłuszczu', amount: 100, unit: 'g' },
+          { name: 'Makaron penne (pełnoziarnisty)', amount: 90, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Cebula', amount: 25, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+          { name: 'Mąka orkiszowa', amount: 5, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 2.5, unit: 'g' },
+          { name: 'Bazylia (suszona)', amount: 1, unit: 'g' },
+          { name: 'Oregano (suszone)', amount: 1, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'ZAPIEKANKI Z PIECZARKAMI',
+        ingredients: [
+          { name: 'Chleb graham', amount: 120, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Pieczarka uprawna, świeża', amount: 80, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 60, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
+        ],
+      },
+    },
+    agata: {
+      breakfast: {
+        name: 'OWSIANKA Z KINDER BUENO I TRUSKAWKAMI',
+        ingredients: [
+          { name: 'Mleko spożywcze, 1,5% tłuszczu', amount: 150, unit: 'g' },
+          { name: 'Truskawki', amount: 150, unit: 'g' },
+          { name: 'Płatki owsiane', amount: 50, unit: 'g' },
+          { name: 'Baton Kinder Bueno', amount: 22, unit: 'g' },
+          { name: 'Orzechy laskowe', amount: 5, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'BUŁKA Z SZYNKĄ I OGÓRKIEM',
+        ingredients: [
+          { name: 'Bułka pełnoziarnista', amount: 80, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 60, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Jabłko', amount: 150, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'ZAPIEKANKA MAKARONOWA Z BROKUŁAMI I SZYNKĄ',
+        ingredients: [
+          { name: 'Brokuły', amount: 200, unit: 'g' },
+          { name: 'Mleko spożywcze, 1,5 % tłuszczu', amount: 100, unit: 'g' },
+          { name: 'Makaron penne (pełnoziarnisty)', amount: 90, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 60, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Cebula', amount: 25, unit: 'g' },
+          { name: 'Czosnek', amount: 5, unit: 'g' },
+          { name: 'Mąka orkiszowa', amount: 5, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 2.5, unit: 'g' },
+          { name: 'Bazylia (suszona)', amount: 1, unit: 'g' },
+          { name: 'Oregano (suszone)', amount: 1, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'ZAPIEKANKI Z PIECZARKAMI',
+        ingredients: [
+          { name: 'Chleb graham', amount: 120, unit: 'g' },
+          { name: 'Ogórki, kiszone', amount: 120, unit: 'g' },
+          { name: 'Pieczarka uprawna, świeża', amount: 80, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Szynka z piersi kurczaka', amount: 30, unit: 'g' },
+          { name: 'Keczup', amount: 15, unit: 'g' },
+        ],
+      },
+    },
+  },
+  saturday: {
+    filip: {
+      breakfast: {
+        name: 'GRZANKI Z GUACAMOLE I JAJKIEM SADZONYM',
+        ingredients: [
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 112, unit: 'g' },
+          { name: 'Awokado', amount: 50, unit: 'g' },
+          { name: 'Cebula czerwona', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 2, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'FIT TIRAMISU',
+        ingredients: [
+          { name: 'Skyr naturalny', amount: 150, unit: 'g' },
+          { name: 'Kawa, napar bez cukru', amount: 100, unit: 'g' },
+          { name: 'Biszkopty', amount: 75, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 15, unit: 'g' },
+          { name: 'Kakao 16%, proszek', amount: 2, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'KOTLET Z PIERSI KURCZAKA Z ZIEMNIAKAMI I MIZERIĄ',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 280, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ogórek', amount: 120, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 40, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 20, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Bułka tarta', amount: 8, unit: 'g' },
+          { name: 'Mąka pszenna, typ 500', amount: 6, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'TORTILLA Z JAJKIEM',
+        ingredients: [
+          { name: 'Jaja kurze całe', amount: 168, unit: 'g' },
+          { name: 'Tortilla pełnoziarnista', amount: 61, unit: 'g' },
+          { name: 'Pomidor', amount: 60, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Szpinak', amount: 25, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Sól biała', amount: 1, unit: 'g' },
+        ],
+      },
+    },
+    agata: {
+      breakfast: {
+        name: 'GRZANKI Z GUACAMOLE I JAJKIEM SADZONYM',
+        ingredients: [
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 112, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 75, unit: 'g' },
+          { name: 'Awokado', amount: 40, unit: 'g' },
+          { name: 'Cebula czerwona', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 2, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'FIT TIRAMISU',
+        ingredients: [
+          { name: 'Skyr naturalny', amount: 150, unit: 'g' },
+          { name: 'Kawa, napar bez cukru', amount: 100, unit: 'g' },
+          { name: 'Biszkopty', amount: 60, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 15, unit: 'g' },
+          { name: 'Kakao 16%, proszek', amount: 2, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'KOTLET Z PIERSI KURCZAKA Z ZIEMNIAKAMI I MIZERIĄ',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 280, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Ogórek', amount: 120, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 40, unit: 'g' },
+          { name: 'Jaja kurze całe', amount: 20, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Bułka tarta', amount: 8, unit: 'g' },
+          { name: 'Mąka pszenna, typ 500', amount: 6, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'TORTILLA Z JAJKIEM',
+        ingredients: [
+          { name: 'Jaja kurze całe', amount: 112, unit: 'g' },
+          { name: 'Tortilla pełnoziarnista', amount: 61, unit: 'g' },
+          { name: 'Pomidor', amount: 60, unit: 'g' },
+          { name: 'Szpinak', amount: 25, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 15, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+          { name: 'Sól biała', amount: 1, unit: 'g' },
+        ],
+      },
+    },
+  },
+  sunday: {
+    filip: {
+      breakfast: {
+        name: 'JAJECZNICA Z WARZYWNĄ SAŁATKĄ',
+        ingredients: [
+          { name: 'Jaja kurze całe', amount: 168, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 120, unit: 'g' },
+          { name: 'Pomidory koktajlowe', amount: 80, unit: 'g' },
+          { name: 'Ogórek', amount: 40, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'TRUSKAWKOWY SERNIK NA ZIMNO',
+        ingredients: [
+          { name: 'Skyr naturalny', amount: 60, unit: 'g' },
+          { name: 'Ser twarogowy chudy', amount: 40, unit: 'g' },
+          { name: 'Truskawki', amount: 40, unit: 'g' },
+          { name: 'Galaretka owocowa (w proszku)', amount: 22.4, unit: 'g' },
+          { name: 'Płatki owsiane', amount: 20, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
+          { name: 'Czekolada gorzka', amount: 12.4, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 4, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'FILET Z KURCZAKA ZAPIEKANY Z MOZZARELLĄ I FRYTKAMI',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 280, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Ser mozzarella, light', amount: 62.5, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Bazylia (suszona)', amount: 2, unit: 'g' },
+          { name: 'Pieprz czarny mielony', amount: 1, unit: 'g' },
+          { name: 'Sól biała', amount: 1, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'DOMOWY KEBAB Z KURCZAKIEM',
+        ingredients: [
+          { name: 'Pomidory koktajlowe', amount: 200, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Tortilla pełnoziarnista', amount: 91.5, unit: 'g' },
+          { name: 'Jogurt naturalny', amount: 80, unit: 'g' },
+          { name: 'Ogórek', amount: 80, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Czosnek', amount: 3, unit: 'g' },
+        ],
+      },
+    },
+    agata: {
+      breakfast: {
+        name: 'JAJECZNICA Z WARZYWNĄ SAŁATKĄ',
+        ingredients: [
+          { name: 'Jaja kurze całe', amount: 168, unit: 'g' },
+          { name: 'Pomidory koktajlowe', amount: 80, unit: 'g' },
+          { name: 'Chleb żytni jasny', amount: 75, unit: 'g' },
+          { name: 'Ogórek', amount: 40, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Masło ekstra', amount: 5, unit: 'g' },
+        ],
+      },
+      secondBreakfast: {
+        name: 'TRUSKAWKOWY SERNIK NA ZIMNO',
+        ingredients: [
+          { name: 'Skyr naturalny', amount: 60, unit: 'g' },
+          { name: 'Ser twarogowy chudy', amount: 40, unit: 'g' },
+          { name: 'Truskawki', amount: 40, unit: 'g' },
+          { name: 'Galaretka owocowa (w proszku)', amount: 22.4, unit: 'g' },
+          { name: 'Płatki owsiane', amount: 20, unit: 'g' },
+          { name: 'Miód pszczeli', amount: 10, unit: 'g' },
+          { name: 'Czekolada gorzka', amount: 10, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 4, unit: 'g' },
+        ],
+      },
+      lunch: {
+        name: 'FILET Z KURCZAKA ZAPIEKANY Z SEREM I FRYTKAMI',
+        ingredients: [
+          { name: 'Ziemniaki', amount: 280, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 180,
+            unit: 'g',
+          },
+          { name: 'Pomidor', amount: 120, unit: 'g' },
+          { name: 'Ser, gouda tłusty', amount: 30, unit: 'g' },
+          { name: 'Olej rzepakowy', amount: 10, unit: 'g' },
+          { name: 'Bazylia (suszona)', amount: 2, unit: 'g' },
+          { name: 'Pieprz czarny mielony', amount: 1, unit: 'g' },
+          { name: 'Sól biała', amount: 1, unit: 'g' },
+        ],
+      },
+      dinner: {
+        name: 'DOMOWY KEBAB Z KURCZAKIEM',
+        ingredients: [
+          { name: 'Pomidory koktajlowe', amount: 200, unit: 'g' },
+          {
+            name: 'Mięso z piersi kurczaka, bez skóry',
+            amount: 160,
+            unit: 'g',
+          },
+          { name: 'Jogurt naturalny', amount: 80, unit: 'g' },
+          { name: 'Ogórek', amount: 80, unit: 'g' },
+          { name: 'Tortilla pełnoziarnista', amount: 61, unit: 'g' },
+          { name: 'Sałata', amount: 20, unit: 'g' },
+          { name: 'Czosnek', amount: 3, unit: 'g' },
+        ],
+      },
+    },
+  },
 };

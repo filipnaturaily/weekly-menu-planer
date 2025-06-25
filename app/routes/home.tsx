@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from '~/components/ui/card';
 import { Checkbox } from '~/components/ui/checkbox';
-import { weeklyMenu, type Ingredient } from '~/consts/weeklyMenu';
+import { weeklyMenu, type Day, type Ingredient } from '~/consts/weeklyMenu';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 import { ScrollArea } from '~/components/ui/scroll-area';
 import {
@@ -22,19 +22,21 @@ import {
 } from '~/components/ui/table';
 import { Label } from '~/components/ui/label';
 import { Input } from '~/components/ui/input';
+import { cn } from '~/lib/utils';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Weekly Menu Planner' },
+    { title: 'Tygodniowy planer menu' },
     {
       name: 'description',
-      content: 'Automated grocery list generation from weekly menu',
+      content:
+        'Automatyczne generowanie listy zakupów na podstawie tygodniowego menu',
     },
   ];
 }
 
 export default function Home() {
-  const days = [
+  const days: Day[] = [
     'monday',
     'tuesday',
     'wednesday',
@@ -43,8 +45,21 @@ export default function Home() {
     'saturday',
     'sunday',
   ];
-  const [selectedDays, setSelectedDays] = useState<string[]>([]);
+  const [selectedDays, setSelectedDays] = useState<Day[]>([]);
   const [multiplier, setMultiplier] = useState<number>(1);
+
+  // Add state to track checked ingredients
+  const [checkedIngredients, setCheckedIngredients] = useState<
+    Record<string, boolean>
+  >({});
+
+  // Handle toggling ingredient checkbox
+  const toggleIngredientCheck = (ingredientName: string) => {
+    setCheckedIngredients((current) => ({
+      ...current,
+      [ingredientName]: !current[ingredientName],
+    }));
+  };
 
   // Handle multiplier input change
   const handleMultiplierChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +99,7 @@ export default function Home() {
   }, [selectedDays, multiplier]);
 
   // Toggle day selection
-  const toggleDay = (day: string) => {
+  const toggleDay = (day: Day) => {
     setSelectedDays((current) =>
       current.includes(day)
         ? current.filter((d) => d !== day)
@@ -92,16 +107,52 @@ export default function Home() {
     );
   };
 
+  const translateDays = (day: Day) => {
+    switch (day) {
+      case 'monday':
+        return 'Poniedziałek';
+      case 'tuesday':
+        return 'Wtorek';
+      case 'wednesday':
+        return 'Środa';
+      case 'thursday':
+        return 'Czwartek';
+      case 'friday':
+        return 'Piątek';
+      case 'saturday':
+        return 'Sobota';
+      case 'sunday':
+        return 'Niedziela';
+      default:
+        return day;
+    }
+  };
+
+  const translateMealType = (mealType: string) => {
+    switch (mealType) {
+      case 'breakfast':
+        return 'Śniadanie';
+      case 'secondBreakfast':
+        return 'Drugie śniadanie';
+      case 'lunch':
+        return 'Obiad';
+      case 'dinner':
+        return 'Kolacja';
+      default:
+        return mealType;
+    }
+  };
+
   return (
-    <div className='container mx-auto py-6'>
-      <h1 className='text-3xl font-bold mb-6'>Weekly Menu Planner</h1>
+    <div className='container mx-auto py-6 px-4'>
+      <h1 className='text-3xl font-bold mb-6'>Tygodniowy planer menu</h1>
 
       {/* Day selection and multiplier */}
       <Card className='mb-6'>
         <CardHeader>
-          <CardTitle>Select Days</CardTitle>
+          <CardTitle>Wybierz dni</CardTitle>
           <CardDescription>
-            Choose the days to include in your grocery list
+            Wybierz dni, w które chcesz uwzględnić listę zakupów
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -115,7 +166,7 @@ export default function Home() {
                     onCheckedChange={() => toggleDay(day)}
                   />
                   <label htmlFor={day} className='capitalize cursor-pointer'>
-                    {day}
+                    {translateDays(day)}
                   </label>
                 </div>
               ))}
@@ -124,7 +175,7 @@ export default function Home() {
             {/* Multiplier input */}
             <div className='flex items-center gap-4 max-w-xs'>
               <Label htmlFor='multiplier' className='whitespace-nowrap'>
-                Portion Multiplier:
+                Mnożnik porcji:
               </Label>
               <Input
                 id='multiplier'
@@ -145,10 +196,12 @@ export default function Home() {
           {selectedDays.map((day) => (
             <Card key={day} className='mb-6'>
               <CardHeader>
-                <CardTitle className='capitalize'>{day}</CardTitle>
+                <CardTitle className='capitalize'>
+                  {translateDays(day)}
+                </CardTitle>
                 {multiplier > 1 && (
                   <CardDescription>
-                    Showing ingredients for {multiplier}× portions
+                    Wyświetlanie składników dla {multiplier} porcji
                   </CardDescription>
                 )}
               </CardHeader>
@@ -166,7 +219,7 @@ export default function Home() {
                           <Card key={mealType}>
                             <CardHeader>
                               <CardTitle className='capitalize text-lg'>
-                                {mealType}
+                                {translateMealType(mealType)}
                               </CardTitle>
                               <CardDescription>{meal.name}</CardDescription>
                             </CardHeader>
@@ -226,31 +279,52 @@ export default function Home() {
           {/* Total ingredients table */}
           <Card>
             <CardHeader>
-              <CardTitle>Grocery List</CardTitle>
+              <CardTitle>Lista zakupów</CardTitle>
               <CardDescription>
-                Combined ingredients for selected days
-                {multiplier > 1 && ` (×${multiplier})`}
+                Połączone składniki na wybrane dni
+                {multiplier > 1 && ` (*${multiplier})`}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ScrollArea className='h-[400px]'>
                 <Table>
                   <TableCaption>
-                    Total ingredients needed for Filip and Agata
+                    Całkowita ilość składników potrzebnych dla Filipa i Agaty
                   </TableCaption>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Ingredient</TableHead>
-                      <TableHead>Amount</TableHead>
-                      <TableHead>Unit</TableHead>
+                      <TableHead className='w-12'>Mam</TableHead>
+                      <TableHead>Składnik</TableHead>
+                      <TableHead>Ilość</TableHead>
+                      <TableHead>Jednostka</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {Object.entries(totalIngredients)
                       .sort(([a], [b]) => a.localeCompare(b))
                       .map(([name, data]) => (
-                        <TableRow key={name}>
-                          <TableCell>{name}</TableCell>
+                        <TableRow
+                          key={name}
+                          className={cn(
+                            checkedIngredients[name] && 'opacity-50'
+                          )}
+                        >
+                          <TableCell className='flex'>
+                            <Checkbox
+                              checked={!!checkedIngredients[name]}
+                              onCheckedChange={() =>
+                                toggleIngredientCheck(name)
+                              }
+                              aria-label={`Mark ${name} as available`}
+                            />
+                          </TableCell>
+                          <TableCell
+                            className={cn(
+                              checkedIngredients[name] && 'line-through'
+                            )}
+                          >
+                            {name}
+                          </TableCell>
                           <TableCell>{data.amount}</TableCell>
                           <TableCell>{data.unit}</TableCell>
                         </TableRow>
