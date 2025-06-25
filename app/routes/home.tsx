@@ -10,7 +10,7 @@ import {
 import { Checkbox } from '~/components/ui/checkbox';
 import { weeklyMenu, type Day, type Ingredient } from '~/consts/weeklyMenu';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
-import { ScrollArea } from '~/components/ui/scroll-area';
+import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area';
 import {
   Table,
   TableBody,
@@ -23,6 +23,8 @@ import {
 import { Label } from '~/components/ui/label';
 import { Input } from '~/components/ui/input';
 import { cn } from '~/lib/utils';
+import { Button } from '~/components/ui/button';
+import { Minus, Plus } from 'lucide-react';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -45,7 +47,7 @@ export default function Home() {
     'saturday',
     'sunday',
   ];
-  const [selectedDays, setSelectedDays] = useState<Day[]>([]);
+  const [selectedDays, setSelectedDays] = useState<Day[]>(['monday']);
   const [multiplier, setMultiplier] = useState<number>(1);
 
   // Add state to track checked ingredients
@@ -64,7 +66,7 @@ export default function Home() {
   // Handle multiplier input change
   const handleMultiplierChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
-    setMultiplier(isNaN(value) || value <= 0 ? 1 : value);
+    setMultiplier(value);
   };
 
   // Calculate total ingredients based on selected days and multiplier
@@ -143,6 +145,24 @@ export default function Home() {
     }
   };
 
+  const handleDecreaseMultiplier = () => {
+    if (isNaN(multiplier)) {
+      return setMultiplier(1);
+    }
+
+    if (multiplier > 1) {
+      setMultiplier((prev) => prev - 1);
+    }
+  };
+
+  const handleIncreaseMultiplier = () => {
+    if (isNaN(multiplier)) {
+      return setMultiplier(1);
+    }
+
+    setMultiplier((prev) => prev + 1);
+  };
+
   return (
     <div className='container mx-auto py-6 px-4'>
       <h1 className='text-3xl font-bold mb-6'>Tygodniowy planer menu</h1>
@@ -177,6 +197,14 @@ export default function Home() {
               <Label htmlFor='multiplier' className='whitespace-nowrap'>
                 Mnożnik porcji:
               </Label>
+              <Button
+                className='cursor-pointer'
+                variant={'outline'}
+                aria-label='Zmniejsz mnożnik porcji'
+                onClick={handleDecreaseMultiplier}
+              >
+                <Minus />
+              </Button>
               <Input
                 id='multiplier'
                 type='number'
@@ -185,6 +213,14 @@ export default function Home() {
                 onChange={handleMultiplierChange}
                 className='w-24'
               />
+              <Button
+                className='cursor-pointer'
+                variant={'outline'}
+                aria-label='Zwiększ mnożnik porcji'
+                onClick={handleIncreaseMultiplier}
+              >
+                <Plus />
+              </Button>
             </div>
           </div>
         </CardContent>
@@ -229,8 +265,14 @@ export default function Home() {
                                   (ingredient: Ingredient, idx: number) => (
                                     <li key={idx}>
                                       {ingredient.name}:{' '}
-                                      {ingredient.amount * multiplier}{' '}
-                                      {ingredient.unit}
+                                      {multiplier <= 0 || isNaN(multiplier) ? (
+                                        '0 g'
+                                      ) : (
+                                        <span>
+                                          {ingredient.amount * multiplier}{' '}
+                                          {ingredient.unit}
+                                        </span>
+                                      )}
                                     </li>
                                   )
                                 )}
@@ -331,6 +373,7 @@ export default function Home() {
                       ))}
                   </TableBody>
                 </Table>
+                <ScrollBar orientation='horizontal' />
               </ScrollArea>
             </CardContent>
           </Card>
@@ -341,8 +384,8 @@ export default function Home() {
         <Card>
           <CardContent className='py-8'>
             <p className='text-center text-muted-foreground'>
-              Select at least one day to display the menu and generate a grocery
-              list
+              Wybierz co najmniej jeden dzień, aby wyświetlić menu i wygenerować
+              listę zakupów
             </p>
           </CardContent>
         </Card>
