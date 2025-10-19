@@ -1,16 +1,16 @@
-import type { Route } from './+types/home';
-import { useState, useMemo } from 'react';
+import type { Route } from "./+types/home";
+import { useState, useMemo } from "react";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '~/components/ui/card';
-import { Checkbox } from '~/components/ui/checkbox';
-import { weeklyMenu, type Day, type Ingredient } from '~/consts/weeklyMenu';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
-import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area';
+} from "~/components/ui/card";
+import { Checkbox } from "~/components/ui/checkbox";
+import { weeklyMenu, type Day, type Ingredient } from "~/consts/weeklyMenu";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import { ScrollArea, ScrollBar } from "~/components/ui/scroll-area";
 import {
   Table,
   TableBody,
@@ -19,35 +19,35 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '~/components/ui/table';
-import { Label } from '~/components/ui/label';
-import { Input } from '~/components/ui/input';
-import { cn } from '~/lib/utils';
-import { Button } from '~/components/ui/button';
-import { Minus, Plus } from 'lucide-react';
+} from "~/components/ui/table";
+import { Label } from "~/components/ui/label";
+import { Input } from "~/components/ui/input";
+import { cn } from "~/lib/utils";
+import { Button } from "~/components/ui/button";
+import { Minus, Plus } from "lucide-react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Tygodniowy planer menu' },
+    { title: "Tygodniowy planer menu" },
     {
-      name: 'description',
+      name: "description",
       content:
-        'Automatyczne generowanie listy zakupów na podstawie tygodniowego menu',
+        "Automatyczne generowanie listy zakupów na podstawie tygodniowego menu",
     },
   ];
 }
 
 export default function Home() {
   const days: Day[] = [
-    'monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday',
-    'saturday',
-    'sunday',
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
   ];
-  const [selectedDays, setSelectedDays] = useState<Day[]>(['monday']);
+  const [selectedDays, setSelectedDays] = useState<Day[]>(["monday"]);
   const [multiplier, setMultiplier] = useState<number>(1);
 
   // Add state to track checked ingredients
@@ -111,20 +111,20 @@ export default function Home() {
 
   const translateDays = (day: Day) => {
     switch (day) {
-      case 'monday':
-        return 'Poniedziałek';
-      case 'tuesday':
-        return 'Wtorek';
-      case 'wednesday':
-        return 'Środa';
-      case 'thursday':
-        return 'Czwartek';
-      case 'friday':
-        return 'Piątek';
-      case 'saturday':
-        return 'Sobota';
-      case 'sunday':
-        return 'Niedziela';
+      case "monday":
+        return "Poniedziałek";
+      case "tuesday":
+        return "Wtorek";
+      case "wednesday":
+        return "Środa";
+      case "thursday":
+        return "Czwartek";
+      case "friday":
+        return "Piątek";
+      case "saturday":
+        return "Sobota";
+      case "sunday":
+        return "Niedziela";
       default:
         return day;
     }
@@ -132,14 +132,14 @@ export default function Home() {
 
   const translateMealType = (mealType: string) => {
     switch (mealType) {
-      case 'breakfast':
-        return 'Śniadanie';
-      case 'secondBreakfast':
-        return 'Drugie śniadanie';
-      case 'lunch':
-        return 'Obiad';
-      case 'dinner':
-        return 'Kolacja';
+      case "breakfast":
+        return "Śniadanie";
+      case "secondBreakfast":
+        return "Drugie śniadanie";
+      case "lunch":
+        return "Obiad";
+      case "dinner":
+        return "Kolacja";
       default:
         return mealType;
     }
@@ -199,7 +199,7 @@ export default function Home() {
               </Label>
               <Button
                 className='cursor-pointer'
-                variant={'outline'}
+                variant={"outline"}
                 aria-label='Zmniejsz mnożnik porcji'
                 onClick={handleDecreaseMultiplier}
               >
@@ -215,7 +215,7 @@ export default function Home() {
               />
               <Button
                 className='cursor-pointer'
-                variant={'outline'}
+                variant={"outline"}
                 aria-label='Zwiększ mnożnik porcji'
                 onClick={handleIncreaseMultiplier}
               >
@@ -264,12 +264,12 @@ export default function Home() {
                                 {meal.ingredients.map(
                                   (ingredient: Ingredient, idx: number) => (
                                     <li key={idx}>
-                                      {ingredient.name}:{' '}
+                                      {ingredient.name}:{" "}
                                       {multiplier <= 0 || isNaN(multiplier) ? (
-                                        '0 g'
+                                        "0 g"
                                       ) : (
                                         <span>
-                                          {ingredient.amount * multiplier}{' '}
+                                          {ingredient.amount * multiplier}{" "}
                                           {ingredient.unit}
                                         </span>
                                       )}
@@ -291,7 +291,7 @@ export default function Home() {
                           <Card key={mealType}>
                             <CardHeader>
                               <CardTitle className='capitalize text-lg'>
-                                {mealType}
+                                {translateMealType(mealType)}
                               </CardTitle>
                               <CardDescription>{meal.name}</CardDescription>
                             </CardHeader>
@@ -300,8 +300,8 @@ export default function Home() {
                                 {meal.ingredients.map(
                                   (ingredient: Ingredient, idx: number) => (
                                     <li key={idx}>
-                                      {ingredient.name}:{' '}
-                                      {ingredient.amount * multiplier}{' '}
+                                      {ingredient.name}:{" "}
+                                      {ingredient.amount * multiplier}{" "}
                                       {ingredient.unit}
                                     </li>
                                   )
@@ -348,7 +348,7 @@ export default function Home() {
                         <TableRow
                           key={name}
                           className={cn(
-                            checkedIngredients[name] && 'opacity-50'
+                            checkedIngredients[name] && "opacity-50"
                           )}
                         >
                           <TableCell className='flex'>
@@ -362,7 +362,7 @@ export default function Home() {
                           </TableCell>
                           <TableCell
                             className={cn(
-                              checkedIngredients[name] && 'line-through'
+                              checkedIngredients[name] && "line-through"
                             )}
                           >
                             {name}
