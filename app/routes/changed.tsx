@@ -24,7 +24,7 @@ import { Input } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
 import { Button } from "~/components/ui/button";
 import { Minus, Plus } from "lucide-react";
-import { originalWeeklyMenu } from "~/consts/original-weekly-menu";
+import { changedWeeklyMenu } from "~/consts/changed-weekly-menu";
 import type { Ingredient } from "~/types/weekly-menu-types";
 
 export function meta({}: Route.MetaArgs) {
@@ -38,7 +38,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export default function Changed() {
   const {
     days,
     selectedDays,
@@ -52,7 +52,7 @@ export default function Home() {
     translateMealType,
     handleDecreaseMultiplier,
     handleIncreaseMultiplier,
-  } = useWeeklyMenu(originalWeeklyMenu);
+  } = useWeeklyMenu(changedWeeklyMenu);
 
   return (
     <div className='container mx-auto py-6 px-4'>
@@ -139,7 +139,7 @@ export default function Home() {
 
                   <TabsContent value='filip'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                      {Object.entries(originalWeeklyMenu[day].filip).map(
+                      {Object.entries(changedWeeklyMenu[day].filip).map(
                         ([mealType, meal]) => (
                           <Card key={mealType}>
                             <CardHeader>
@@ -175,7 +175,7 @@ export default function Home() {
 
                   <TabsContent value='agata'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                      {Object.entries(originalWeeklyMenu[day].agata).map(
+                      {Object.entries(changedWeeklyMenu[day].agata).map(
                         ([mealType, meal]) => (
                           <Card key={mealType}>
                             <CardHeader>

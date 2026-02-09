@@ -1,36 +1,6 @@
-export interface Ingredient {
-  name: string;
-  amount: number;
-  unit: string;
-}
+import type { WeeklyMenu } from "~/types/weekly-menu-types";
 
-export interface Dish {
-  name: string;
-  ingredients: Ingredient[];
-}
-
-export interface Meal {
-  breakfast: Dish;
-  secondBreakfast: Dish;
-  lunch: Dish;
-  dinner: Dish;
-}
-
-export interface PersonMeals {
-  filip: Meal;
-  agata: Meal;
-}
-
-export type Day =
-  | "monday"
-  | "tuesday"
-  | "wednesday"
-  | "thursday"
-  | "friday"
-  | "saturday"
-  | "sunday";
-
-export const weeklyMenu: Record<Day, PersonMeals> = {
+export const originalWeeklyMenu: WeeklyMenu = {
   monday: {
     filip: {
       breakfast: {
@@ -38,7 +8,7 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
         ingredients: [
           { name: "Pomidor", amount: 120, unit: "g" },
           { name: "Chleb żytni jasny", amount: 120, unit: "g" },
-          { name: "Szynka z piersi kurczaka", amount: 60, unit: "g" },
+          { name: "Ser, gouda tłusty", amount: 60, unit: "g" },
           { name: "Sałata", amount: 20, unit: "g" },
           { name: "Masło ekstra", amount: 10, unit: "g" },
         ],
@@ -211,7 +181,6 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
   },
   wednesday: {
     filip: {
-      // Add dishes for Filip on Wednesday
       breakfast: {
         name: "KANAPKI Z SZYNKĄ I POMIDOREM",
         ingredients: [
@@ -416,7 +385,7 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
       lunch: {
         name: "DOMOWY ZDROWSZY BIG MAC",
         ingredients: [
-          { name: "Mięso mielone wołowe", amount: 200, unit: "g" },
+          { name: "Mięso mielone wołowe", amount: 150, unit: "g" },
           { name: "Majonez light", amount: 30, unit: "g" },
           { name: "Jogurt naturalny (proteinowy)", amount: 30, unit: "g" },
           { name: "Keczup", amount: 5, unit: "g" },
@@ -463,7 +432,7 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
       lunch: {
         name: "DOMOWY ZDROWSZY BIG MAC",
         ingredients: [
-          { name: "Mięso mielone wołowe", amount: 200, unit: "g" },
+          { name: "Mięso mielone wołowe", amount: 150, unit: "g" },
           { name: "Majonez light", amount: 30, unit: "g" },
           { name: "Jogurt naturalny (proteinowy)", amount: 30, unit: "g" },
           { name: "Keczup", amount: 5, unit: "g" },
@@ -603,16 +572,13 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
         ],
       },
       secondBreakfast: {
-        name: "TRUSKAWKOWY SERNIK NA ZIMNO",
+        name: "OWSIANKA Z DUSZONYM JABŁKIEM I CYNAMONEM",
         ingredients: [
-          { name: "Skyr naturalny", amount: 60, unit: "g" },
-          { name: "Ser twarogowy chudy", amount: 40, unit: "g" },
-          { name: "Truskawki", amount: 40, unit: "g" },
-          { name: "Galaretka owocowa (w proszku)", amount: 22.4, unit: "g" },
-          { name: "Płatki owsiane", amount: 20, unit: "g" },
-          { name: "Miód pszczeli", amount: 10, unit: "g" },
-          { name: "Czekolada gorzka", amount: 12.4, unit: "g" },
-          { name: "Olej rzepakowy", amount: 4, unit: "g" },
+          { name: "Płatki owsiane", amount: 60, unit: "g" },
+          { name: "Jabłko", amount: 263, unit: "g" },
+          { name: "Cynamon", amount: 5, unit: "g" },
+          { name: "Mleko spożywcze, 1,5% tłuszczu", amount: 400, unit: "g" },
+          { name: "Orzechy włoskie", amount: 30, unit: "g" },
         ],
       },
       lunch: {
@@ -662,16 +628,13 @@ export const weeklyMenu: Record<Day, PersonMeals> = {
         ],
       },
       secondBreakfast: {
-        name: "TRUSKAWKOWY SERNIK NA ZIMNO",
+        name: "OWSIANKA Z DUSZONYM JABŁKIEM I CYNAMONEM",
         ingredients: [
-          { name: "Skyr naturalny", amount: 60, unit: "g" },
-          { name: "Ser twarogowy chudy", amount: 40, unit: "g" },
-          { name: "Truskawki", amount: 40, unit: "g" },
-          { name: "Galaretka owocowa (w proszku)", amount: 22.4, unit: "g" },
-          { name: "Płatki owsiane", amount: 20, unit: "g" },
-          { name: "Miód pszczeli", amount: 10, unit: "g" },
-          { name: "Czekolada gorzka", amount: 10, unit: "g" },
-          { name: "Olej rzepakowy", amount: 4, unit: "g" },
+          { name: "Płatki owsiane", amount: 60, unit: "g" },
+          { name: "Jabłko", amount: 263, unit: "g" },
+          { name: "Cynamon", amount: 5, unit: "g" },
+          { name: "Mleko spożywcze, 1,5% tłuszczu", amount: 400, unit: "g" },
+          { name: "Orzechy włoskie", amount: 30, unit: "g" },
         ],
       },
       lunch: {
