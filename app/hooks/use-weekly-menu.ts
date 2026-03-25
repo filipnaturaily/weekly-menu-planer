@@ -20,7 +20,10 @@ interface PersonMeals {
 
 type WeeklyMenu = Record<Day, PersonMeals>;
 
-export function useWeeklyMenu(weeklyMenu: WeeklyMenu) {
+export function useWeeklyMenu(
+  weeklyMenu: WeeklyMenu,
+  person: "filip" | "agata" | "both" = "both",
+) {
   const days: Day[] = [
     "monday",
     "tuesday",
@@ -60,28 +63,40 @@ export function useWeeklyMenu(weeklyMenu: WeeklyMenu) {
       const dayMenu = weeklyMenu[day];
 
       // Process Filip's meals
-      Object.values(dayMenu.filip).forEach((meal) => {
-        meal.ingredients.forEach((ingredient: Ingredient) => {
-          if (!ingredients[ingredient.name]) {
-            ingredients[ingredient.name] = { amount: 0, unit: ingredient.unit };
-          }
-          ingredients[ingredient.name].amount += ingredient.amount * multiplier;
+      if (person === "filip" || person === "both") {
+        Object.values(dayMenu.filip).forEach((meal) => {
+          meal.ingredients.forEach((ingredient: Ingredient) => {
+            if (!ingredients[ingredient.name]) {
+              ingredients[ingredient.name] = {
+                amount: 0,
+                unit: ingredient.unit,
+              };
+            }
+            ingredients[ingredient.name].amount +=
+              ingredient.amount * multiplier;
+          });
         });
-      });
+      }
 
       // Process Agata's meals
-      Object.values(dayMenu.agata).forEach((meal) => {
-        meal.ingredients.forEach((ingredient: Ingredient) => {
-          if (!ingredients[ingredient.name]) {
-            ingredients[ingredient.name] = { amount: 0, unit: ingredient.unit };
-          }
-          ingredients[ingredient.name].amount += ingredient.amount * multiplier;
+      if (person === "agata" || person === "both") {
+        Object.values(dayMenu.agata).forEach((meal) => {
+          meal.ingredients.forEach((ingredient: Ingredient) => {
+            if (!ingredients[ingredient.name]) {
+              ingredients[ingredient.name] = {
+                amount: 0,
+                unit: ingredient.unit,
+              };
+            }
+            ingredients[ingredient.name].amount +=
+              ingredient.amount * multiplier;
+          });
         });
-      });
+      }
     });
 
     return ingredients;
-  }, [selectedDays, multiplier, weeklyMenu]);
+  }, [selectedDays, multiplier, weeklyMenu, person]);
 
   // Toggle day selection
   const toggleDay = (day: Day) => {
