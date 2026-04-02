@@ -14,22 +14,16 @@ const Header = () => {
             </Link>
             <div className="flex space-x-6">
               <Link
-                to="/"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Menu
-              </Link>
-              <Link
-                to="/changed"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Zmiany
-              </Link>
-              <Link
                 to="/filip"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
               >
                 Filip
+              </Link>
+              <Link
+                to="/agata"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Agata
               </Link>
             </div>
           </div>
