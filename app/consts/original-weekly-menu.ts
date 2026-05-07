@@ -54,7 +54,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Skyr naturalny", amount: 200, unit: "g" },
           { name: "Płatki migdałowe", amount: 20, unit: "g" },
           { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
-          { name: "Owoce (borówki, jagody)", amount: 50, unit: "g" },
+          { name: "Borówki, maliny", amount: 50, unit: "g" },
           { name: "Cynamon", amount: 8, unit: "g" },
         ],
       },
@@ -77,11 +77,11 @@ export const originalWeeklyMenu: WeeklyMenu = {
       lunch: {
         name: "PENNE Z PESTO I KURCZAKIEM",
         ingredients: [
-          { name: "Pierś z kurczaka", amount: 150, unit: "g" },
+          { name: "Filet z kurczaka", amount: 150, unit: "g" },
           { name: "Makaron razowy penne", amount: 60, unit: "g" },
           { name: "Pesto zielone", amount: 2, unit: "łyżki" },
           {
-            name: "Liście bazylii albo natka pietruszki",
+            name: "Natka pietruszki",
             amount: 0,
             unit: "g",
           },
@@ -92,7 +92,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Pomidorki koktajlowe", amount: 7, unit: "szt" },
           { name: "Rukola", amount: 1, unit: "garść" },
-          { name: "Cebula czerwona", amount: 1, unit: "plasterek" },
+          { name: "Cebula", amount: 1, unit: "plasterek" },
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           { name: "Pestki dyni", amount: 5, unit: "g" },
           { name: "Jajko - L", amount: 1, unit: "szt" },
@@ -100,7 +100,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Szczypiorek", amount: 5, unit: "g" },
           { name: "Kiełki", amount: 5, unit: "g" },
           {
-            name: "Chleb żytni na zakwasie, gryczany, orkiszowy",
+            name: "Chleb żytni",
             amount: 70,
             unit: "g",
           },
@@ -168,13 +168,13 @@ export const originalWeeklyMenu: WeeklyMenu = {
             amount: 5,
             unit: "g",
           },
-          { name: "Orzechy brazylijskie pokruszone", amount: 2, unit: "szt" },
+          { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
         ],
       },
       secondBreakfast: {
         name: "SAŁATKA Z KASZĄ BULGUR",
         ingredients: [
-          { name: "Kasza bulgur lub kuskus", amount: 50, unit: "g" },
+          { name: "Kasza kuskus", amount: 50, unit: "g" },
           { name: "Pomidory suszone", amount: 30, unit: "g" },
           { name: "Natka pietruszki", amount: 2, unit: "łyżki" },
           { name: "Majonez wege", amount: 10, unit: "g" },
@@ -201,12 +201,12 @@ export const originalWeeklyMenu: WeeklyMenu = {
       dinner: {
         name: "KANAPKI Z SERKIEM I AWOKADO",
         ingredients: [
-          { name: "Chleb graham lub żytni na zakwasie", amount: 80, unit: "g" },
+          { name: "Chleb żytni", amount: 80, unit: "g" },
           { name: "Humus", amount: 20, unit: "g" },
           { name: "Szczypiorek", amount: 10, unit: "g" },
           { name: "Kiełki", amount: 10, unit: "g" },
           { name: "Pomidor", amount: 10, unit: "g" },
-          { name: "Ogórek", amount: 10, unit: "g" },
+          { name: "Ogórek zielony", amount: 10, unit: "g" },
           { name: "Awokado", amount: 80, unit: "g" },
         ],
       },
@@ -273,8 +273,8 @@ export const originalWeeklyMenu: WeeklyMenu = {
       breakfast: {
         name: "JOGURT Z OWOCAMI I ORZECHAMI",
         ingredients: [
-          { name: "Skry naturalny", amount: 250, unit: "g" },
-          { name: "Owoce (borówki, maliny)", amount: 50, unit: "g" },
+          { name: "Skyr naturalny", amount: 250, unit: "g" },
+          { name: "Borówki, maliny", amount: 50, unit: "g" },
           { name: "Płatki migdałowe", amount: 10, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
@@ -299,7 +299,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           { name: "Pestki dyni", amount: 5, unit: "g" },
           {
-            name: "Chleb orkiszowy lub żytni na zakwasie",
+            name: "Chleb żytni",
             amount: 40,
             unit: "g",
           },
@@ -323,10 +323,14 @@ export const originalWeeklyMenu: WeeklyMenu = {
         name: "ŁOSOŚ WĘDZONY Z PIECZYWEM",
         ingredients: [
           { name: "Łosoś wędzony", amount: 100, unit: "g" },
-          { name: "Warzywa zielonolistne", amount: 1, unit: "garść" },
+          {
+            name: "Warzywa zielonolistne (mix sałat, sałata lub rukola, liście szpinaku, roszponka)",
+            amount: 1,
+            unit: "garść",
+          },
           { name: "Cebula", amount: 1, unit: "plaster" },
           { name: "Pomidorki koktajlowe", amount: 5, unit: "szt" },
-          { name: "Chleb graham lub orkiszowy", amount: 35, unit: "g" },
+          { name: "Chleb żytni", amount: 35, unit: "g" },
         ],
       },
     },
@@ -381,11 +385,11 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Płatki owsiane", amount: 40, unit: "g" },
           { name: "Masło orzechowe", amount: 10, unit: "g" },
           {
-            name: "Orzechy lub migdały (+ 2 orzechy brazylijskie)",
+            name: "Orzechy (+ 2 orzechy brazylijskie)",
             amount: 20,
             unit: "g",
           },
-          { name: "Owoce (maliny, jagody, borówki)", amount: 50, unit: "g" },
+          { name: "Borówki, maliny", amount: 50, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
             name: "Wiórki gorzkiej czekolady min. 90% kakao",
@@ -402,11 +406,11 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Pomidory", amount: 2, unit: "szt" },
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           {
-            name: "Liście bazylii, warzywa zielonolistne",
+            name: "Warzywa zielonolistne (mix sałat, sałata lub rukola, liście szpinaku, roszponka)",
             amount: 10,
             unit: "g",
           },
-          { name: "Chleb orkiszowy", amount: 35, unit: "g" },
+          { name: "Chleb żytni", amount: 35, unit: "g" },
         ],
       },
       lunch: {
@@ -432,7 +436,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Sól", amount: 5, unit: "g" },
           { name: "Pieprz", amount: 5, unit: "g" },
           {
-            name: "Chleb zytni na zakwasie, gryczany, orkiszowy",
+            name: "Chleb żytni",
             amount: 40,
             unit: "g",
           },
@@ -495,20 +499,24 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Jajko - S", amount: 2, unit: "szt" },
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           { name: "Pomidor", amount: 0.5, unit: "szt" },
-          { name: "Chleb graham lub orkiszowy", amount: 70, unit: "g" },
-          { name: "Warzywa zielonolistne", amount: 5, unit: "g" },
+          { name: "Chleb żytni", amount: 70, unit: "g" },
+          {
+            name: "Warzywa zielonolistne (mix sałat, sałata lub rukola, liście szpinaku, roszponka)",
+            amount: 5,
+            unit: "g",
+          },
         ],
       },
       secondBreakfast: {
         name: "KOKTAJL KAKAOWY I ORZECHY",
         ingredients: [
-          { name: "Jogurt naturalny pitny", amount: 350, unit: "g" },
+          { name: "Skyr naturalny pitny", amount: 330, unit: "g" },
           { name: "Kakao gorzkie", amount: 5, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           { name: "Czekolada gorzka", amount: 10, unit: "g" },
           { name: "Płatki migdałowe", amount: 10, unit: "g" },
           {
-            name: "Orzechy włoskie lub migdały + 2 orzechy brazylijskie",
+            name: "Orzechy (+ 2 orzechy brazylijskie)",
             amount: 20,
             unit: "g",
           },
@@ -517,7 +525,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
       lunch: {
         name: "MAKARON Z POMIDORAMI SUSZONYMI Z KURCZAKIEM I CUKINIĄ",
         ingredients: [
-          { name: "Makaron pełnoziarnisty", amount: 60, unit: "g" },
+          { name: "Makaron razowy penne", amount: 60, unit: "g" },
           { name: "Pomidory suszone", amount: 30, unit: "g" },
           { name: "Oliwa z oliwek", amount: 1, unit: "łyżki" },
           { name: "Pomidory z puszki", amount: 200, unit: "g" },
@@ -531,7 +539,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
       dinner: {
         name: "OGÓREK I KANAPKI Z PASTĄ WARZYWNĄ",
         ingredients: [
-          { name: "Chleb graham lub żytni na zakwasie", amount: 70, unit: "g" },
+          { name: "Chleb żytni", amount: 70, unit: "g" },
           { name: "Humus", amount: 30, unit: "g" },
           { name: "Kiełki", amount: 20, unit: "g" },
           { name: "Ogórek zielony", amount: 8, unit: "plasterki" },
@@ -606,7 +614,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
             amount: 10,
             unit: "g",
           },
-          { name: "Chleb żytni na zakwasie", amount: 35, unit: "g" },
+          { name: "Chleb żytni", amount: 35, unit: "g" },
           { name: "Humus", amount: 10, unit: "g" },
         ],
       },
@@ -615,7 +623,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Kasza bulgur", amount: 50, unit: "g" },
           { name: "Ogórek kiszony", amount: 2, unit: "szt" },
-          { name: "Kukurydza konserwowa", amount: 50, unit: "g" },
+          { name: "Kukurydza", amount: 50, unit: "g" },
           { name: "Natka pietruszki", amount: 2, unit: "łyżki" },
           { name: "Majonez wege", amount: 1, unit: "łyżki" },
         ],
@@ -630,7 +638,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
             unit: "g",
           },
           { name: "Oliwa z oliwek", amount: 10, unit: "g" },
-          { name: "Pomidorki", amount: 7, unit: "szt" },
+          { name: "Pomidorki koktajlowe", amount: 7, unit: "szt" },
           { name: "Zioła (oregano, bazylia)", amount: 20, unit: "g" },
           { name: "Pomarańcza", amount: 1, unit: "szt" },
         ],
@@ -639,7 +647,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         name: "KANAPKA Z JAJKIEM W KOSZULCE, AWOKADO",
         ingredients: [
           { name: "Jajko - L", amount: 1, unit: "szt" },
-          { name: "Chleb graham lub orkiszowy", amount: 70, unit: "g" },
+          { name: "Chleb żytni", amount: 70, unit: "g" },
           { name: "Humus", amount: 20, unit: "g" },
           { name: "Awokado", amount: 80, unit: "g" },
           {
@@ -710,7 +718,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
       breakfast: {
         name: "KANAPKI Z SERKEM I SEREK WIEJSKI",
         ingredients: [
-          { name: "Chleb graham", amount: 70, unit: "g" },
+          { name: "Chleb żytni", amount: 70, unit: "g" },
           { name: "Humus", amount: 20, unit: "g" },
           {
             name: "Rzodkiewka, ogórek kiszony, szczypiorek lub kiełki roślin",
@@ -723,11 +731,11 @@ export const originalWeeklyMenu: WeeklyMenu = {
       secondBreakfast: {
         name: "KOKTAJL Z BANANEM I OWOCAMI LEŚNYMI I ORZECHAMI",
         ingredients: [
-          { name: "Skyr pitny", amount: 330, unit: "g" },
+          { name: "Skyr naturalny pitny", amount: 330, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           { name: "Maliny lub borówki", amount: 50, unit: "g" },
           {
-            name: "Orzechy włoskie lub migdały + 2 orzechy brazylijskie",
+            name: "Orzechy (+ 2 orzechy brazylijskie)",
             amount: 20,
             unit: "g",
           },
