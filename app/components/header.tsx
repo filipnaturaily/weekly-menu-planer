@@ -1,6 +1,9 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { cn } from "~/lib/utils";
 
 const Header = () => {
+  const pathname = useLocation().pathname;
+
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-4">
@@ -10,20 +13,30 @@ const Header = () => {
               to="/"
               className="text-lg font-semibold text-gray-900 hover:text-gray-700 transition-colors"
             >
-              Tygodniowy planer menu
+              Menu
             </Link>
             <div className="flex space-x-6">
               <Link
-                to="/filip"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Filip
-              </Link>
-              <Link
                 to="/agata"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className={cn(
+                  "text-gray-600 hover:text-gray-900 transition-colors",
+                  {
+                    "text-yellow-500 font-bold": pathname === "/agata",
+                  },
+                )}
               >
                 Agata
+              </Link>
+              <Link
+                to="/filip"
+                className={cn(
+                  "text-gray-600 hover:text-gray-900 transition-colors",
+                  {
+                    "text-blue-900 font-bold": pathname === "/filip",
+                  },
+                )}
+              >
+                Filip
               </Link>
             </div>
           </div>
