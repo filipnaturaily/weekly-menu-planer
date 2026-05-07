@@ -23,6 +23,11 @@ import { Input } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
 import { Button } from "~/components/ui/button";
 import { Minus, Plus } from "lucide-react";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "~/components/ui/tooltip";
 import { originalWeeklyMenu } from "~/consts/original-weekly-menu";
 import type { Ingredient } from "~/types/weekly-menu-types";
 
@@ -53,9 +58,9 @@ export default function Filip() {
   } = useWeeklyMenu(originalWeeklyMenu, "filip");
 
   return (
-    <div className='container mx-auto py-6 px-4'>
+    <div className="container mx-auto py-6 px-4">
       {/* Day selection and multiplier */}
-      <Card className='mb-6'>
+      <Card className="mb-6">
         <CardHeader>
           <CardTitle>Menu Filipa</CardTitle>
           <CardDescription>
@@ -63,16 +68,16 @@ export default function Filip() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className='space-y-6'>
-            <div className='flex flex-wrap gap-4'>
+          <div className="space-y-6">
+            <div className="flex flex-wrap gap-4">
               {days.map((day) => (
-                <div key={day} className='flex items-center space-x-2'>
+                <div key={day} className="flex items-center space-x-2">
                   <Checkbox
                     id={day}
                     checked={selectedDays.includes(day)}
                     onCheckedChange={() => toggleDay(day)}
                   />
-                  <label htmlFor={day} className='capitalize cursor-pointer'>
+                  <label htmlFor={day} className="capitalize cursor-pointer">
                     {translateDays(day)}
                   </label>
                 </div>
@@ -80,30 +85,30 @@ export default function Filip() {
             </div>
 
             {/* Multiplier input */}
-            <div className='flex items-center gap-4 max-w-xs'>
-              <Label htmlFor='multiplier' className='whitespace-nowrap'>
+            <div className="flex items-center gap-4 max-w-xs">
+              <Label htmlFor="multiplier" className="whitespace-nowrap">
                 Mnożnik porcji:
               </Label>
               <Button
-                className='cursor-pointer'
+                className="cursor-pointer"
                 variant={"outline"}
-                aria-label='Zmniejsz mnożnik porcji'
+                aria-label="Zmniejsz mnożnik porcji"
                 onClick={handleDecreaseMultiplier}
               >
                 <Minus />
               </Button>
               <Input
-                id='multiplier'
-                type='number'
-                min='1'
+                id="multiplier"
+                type="number"
+                min="1"
                 value={multiplier}
                 onChange={handleMultiplierChange}
-                className='w-24'
+                className="w-24"
               />
               <Button
-                className='cursor-pointer'
+                className="cursor-pointer"
                 variant={"outline"}
-                aria-label='Zwiększ mnożnik porcji'
+                aria-label="Zwiększ mnożnik porcji"
                 onClick={handleIncreaseMultiplier}
               >
                 <Plus />
@@ -115,11 +120,11 @@ export default function Filip() {
 
       {/* Weekly menu display */}
       {selectedDays.length > 0 && (
-        <div className='space-y-6'>
+        <div className="space-y-6">
           {selectedDays.map((day) => (
-            <Card key={day} className='mb-6'>
+            <Card key={day} className="mb-6">
               <CardHeader>
-                <CardTitle className='capitalize'>
+                <CardTitle className="capitalize">
                   {translateDays(day)}
                 </CardTitle>
                 {multiplier > 1 && (
@@ -129,18 +134,18 @@ export default function Filip() {
                 )}
               </CardHeader>
               <CardContent>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {Object.entries(originalWeeklyMenu[day].filip).map(
                     ([mealType, meal]) => (
                       <Card key={mealType}>
                         <CardHeader>
-                          <CardTitle className='capitalize text-lg'>
+                          <CardTitle className="capitalize text-lg">
                             {translateMealType(mealType)}
                           </CardTitle>
                           <CardDescription>{meal.name}</CardDescription>
                         </CardHeader>
                         <CardContent>
-                          <ul className='list-disc pl-5 space-y-1'>
+                          <ul className="list-disc pl-5 space-y-1">
                             {meal.ingredients.map(
                               (ingredient: Ingredient, idx: number) => (
                                 <li key={idx}>
@@ -176,14 +181,14 @@ export default function Filip() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ScrollArea className='h-100'>
+              <ScrollArea className="h-100">
                 <Table>
                   <TableCaption>
                     Całkowita ilość składników potrzebnych dla Filipa
                   </TableCaption>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className='w-12'>Mam</TableHead>
+                      <TableHead className="w-12">Mam</TableHead>
                       <TableHead>Składnik</TableHead>
                       <TableHead>Ilość</TableHead>
                       <TableHead>Jednostka</TableHead>
@@ -199,7 +204,7 @@ export default function Filip() {
                             checkedIngredients[name] && "opacity-50",
                           )}
                         >
-                          <TableCell className='flex'>
+                          <TableCell className="flex">
                             <Checkbox
                               checked={!!checkedIngredients[name]}
                               onCheckedChange={() =>
@@ -213,7 +218,18 @@ export default function Filip() {
                               checkedIngredients[name] && "line-through",
                             )}
                           >
-                            {name}
+                            {name.length > 20 ? (
+                              <Tooltip>
+                                <TooltipTrigger className="cursor-help">
+                                  {name.substring(0, 20)}...
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>{name}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            ) : (
+                              name
+                            )}
                           </TableCell>
                           <TableCell>{data.amount}</TableCell>
                           <TableCell>{data.unit}</TableCell>
@@ -221,7 +237,7 @@ export default function Filip() {
                       ))}
                   </TableBody>
                 </Table>
-                <ScrollBar orientation='horizontal' />
+                <ScrollBar orientation="horizontal" />
               </ScrollArea>
             </CardContent>
           </Card>
@@ -230,8 +246,8 @@ export default function Filip() {
 
       {selectedDays.length === 0 && (
         <Card>
-          <CardContent className='py-8'>
-            <p className='text-center text-muted-foreground'>
+          <CardContent className="py-8">
+            <p className="text-center text-muted-foreground">
               Wybierz co najmniej jeden dzień, aby wyświetlić menu i wygenerować
               listę zakupów
             </p>
