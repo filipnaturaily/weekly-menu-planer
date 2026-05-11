@@ -19,7 +19,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Skyr naturalny pitny", amount: 330, unit: "g" },
           { name: "Orzechy", amount: 20, unit: "g" },
-          { name: "Borówki", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Banan", amount: 150, unit: "g" },
         ],
       },
@@ -54,8 +54,9 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Skyr naturalny", amount: 200, unit: "g" },
           { name: "Płatki migdałowe", amount: 20, unit: "g" },
           { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
-          { name: "Borówki, maliny", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Cynamon", amount: 8, unit: "g" },
+          { name: "Banan", amount: 100, unit: "g" },
         ],
       },
       secondBreakfast: {
@@ -69,6 +70,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Pomidorki koktajlowe", amount: 7, unit: "szt" },
           { name: "Oliwki", amount: 10, unit: "szt" },
           { name: "Ogórek zielony", amount: 10, unit: "plasterki" },
+          { name: "Cebula", amount: 1, unit: "plasterki" },
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           { name: "Ser mozzarella", amount: 50, unit: "g" },
           { name: "Pestki dyni", amount: 10, unit: "g" },
@@ -161,7 +163,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         name: "SKYR Z OWOCAMI",
         ingredients: [
           { name: "Skyr naturalny", amount: 200, unit: "g" },
-          { name: "Borówki", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
             name: "Wiórki gorzkiej czekolady min. 90% kakao",
@@ -232,7 +234,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         name: "JOGURT Z OWOCAMI",
         ingredients: [
           { name: "Jogurt naturalny", amount: 350, unit: "g" },
-          { name: "Borówki", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Płatki migdałowe", amount: 20, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
@@ -274,7 +276,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         name: "JOGURT Z OWOCAMI I ORZECHAMI",
         ingredients: [
           { name: "Skyr naturalny", amount: 250, unit: "g" },
-          { name: "Borówki, maliny", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Płatki migdałowe", amount: 10, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
@@ -282,6 +284,8 @@ export const originalWeeklyMenu: WeeklyMenu = {
             amount: 5,
             unit: "g",
           },
+          { name: "Orzechy", amount: 20, unit: "g" },
+          { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
         ],
       },
       secondBreakfast: {
@@ -385,11 +389,12 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Płatki owsiane", amount: 40, unit: "g" },
           { name: "Masło orzechowe", amount: 10, unit: "g" },
           {
-            name: "Orzechy (+ 2 orzechy brazylijskie)",
+            name: "Orzechy",
             amount: 20,
             unit: "g",
           },
-          { name: "Borówki, maliny", amount: 50, unit: "g" },
+          { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
           {
             name: "Wiórki gorzkiej czekolady min. 90% kakao",
@@ -515,11 +520,8 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Banan", amount: 100, unit: "g" },
           { name: "Czekolada gorzka", amount: 10, unit: "g" },
           { name: "Płatki migdałowe", amount: 10, unit: "g" },
-          {
-            name: "Orzechy (+ 2 orzechy brazylijskie)",
-            amount: 20,
-            unit: "g",
-          },
+          { name: "Orzechy", amount: 20, unit: "g" },
+          { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
         ],
       },
       lunch: {
@@ -558,7 +560,6 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Chleb żytni", amount: 120, unit: "g" },
           { name: "Humus", amount: 45, unit: "g" },
           { name: "Czarnuszka", amount: 10, unit: "g" },
-          { name: "Awokado", amount: 50, unit: "g" },
           { name: "Pomidor", amount: 150, unit: "g" },
           { name: "Awokado", amount: 100, unit: "g" },
           { name: "Jajko - L", amount: 1, unit: "szt" },
@@ -570,7 +571,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
           { name: "Płatki owsiane", amount: 40, unit: "g" },
           { name: "Masło orzechowe", amount: 20, unit: "g" },
           { name: "Płatki migdałowe", amount: 10, unit: "g" },
-          { name: "Borówki", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Banan", amount: 150, unit: "g" },
           { name: "Cynamon", amount: 5, unit: "g" },
         ],
@@ -595,7 +596,6 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Sałata", amount: 50, unit: "g" },
           { name: "Pomidorki koktajlowe", amount: 100, unit: "g" },
-          { name: "Pomidor", amount: 20, unit: "g" },
           { name: "Ogórek zielony", amount: 40, unit: "g" },
           { name: "Oliwa z oliwek", amount: 5, unit: "g" },
           { name: "Ser mozzarella", amount: 100, unit: "g" },
@@ -681,7 +681,7 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Jogurt naturalny", amount: 300, unit: "g" },
           { name: "Banan", amount: 200, unit: "g" },
-          { name: "Borówki", amount: 50, unit: "g" },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
           { name: "Orzechy", amount: 40, unit: "g" },
         ],
       },
@@ -733,23 +733,16 @@ export const originalWeeklyMenu: WeeklyMenu = {
         ingredients: [
           { name: "Skyr naturalny pitny", amount: 330, unit: "g" },
           { name: "Banan", amount: 100, unit: "g" },
-          { name: "Maliny lub borówki", amount: 50, unit: "g" },
-          {
-            name: "Orzechy (+ 2 orzechy brazylijskie)",
-            amount: 20,
-            unit: "g",
-          },
+          { name: "Borówki lub maliny", amount: 50, unit: "g" },
+          { name: "Orzechy", amount: 20, unit: "g" },
+          { name: "Orzechy brazylijskie", amount: 2, unit: "szt" },
         ],
       },
       lunch: {
         name: "KURCZAK Z MARCHEWKĄ",
         ingredients: [
           { name: "Filet z kurczaka", amount: 180, unit: "g" },
-          {
-            name: "Ziemniaki",
-            amount: 200,
-            unit: "g",
-          },
+          { name: "Ziemniaki", amount: 200, unit: "g" },
           { name: "Olej rzepakowy", amount: 10, unit: "g" },
           { name: "Zioła (oregano, bazylia)", amount: 10, unit: "g" },
           { name: "Marchewka", amount: 2, unit: "szt" },
