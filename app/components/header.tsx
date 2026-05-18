@@ -38,6 +38,17 @@ const Header = () => {
               >
                 Filip
               </Link>
+              <Link
+                to="/both"
+                className={cn(
+                  "text-gray-600 hover:text-gray-900 transition-colors",
+                  {
+                    "text-yellow-500 font-bold": pathname === "/both",
+                  },
+                )}
+              >
+                My
+              </Link>
             </div>
           </div>
         </nav>

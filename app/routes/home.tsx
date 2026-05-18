@@ -20,12 +20,15 @@ export default function Home() {
         <div className="flex flex-col gap-y-4">
           <Button
             asChild
-            className="bg-yellow-300 hover:bg-yellow-400 text-black"
+            className="bg-yellow-300 hover:bg-yellow-400! text-black"
           >
             <Link to="/agata">Agata</Link>
           </Button>
-          <Button asChild className="bg-blue-900 hover:bg-blue-950">
+          <Button asChild className="bg-blue-900 hover:bg-blue-950!">
             <Link to="/filip">Filip</Link>
+          </Button>
+          <Button asChild className="bg-green-900 hover:bg-green-950!">
+            <Link to="/both">Dla dwóch osób</Link>
           </Button>
         </div>
       </div>
